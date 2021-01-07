@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 导入尽量不要使用绝对路径或是..的形式,这会对上层产生依赖 -->
+    <import resource="basic.xml"/>
+
+    <!-- id是单个bean的标识符,class是具体的类的完全全限定类目 -->
+    <bean id="rainbow" class="chaste.core.simple.Rainbow">
+        <property name="color" ref="color"/>
+    </bean>
+
+
+
+</beans>
