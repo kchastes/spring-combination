@@ -13,25 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package chaste.core.simple;
+package util;
 
-import chaste.core.simple.abs.Color;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- *
- * @author KChaste Sun
+ * @KChaste Sun
  */
-public class BlackColor extends Color {
+public class SpringUtil {
 
-    private static final BlackColor BLACK_COLOR = new BlackColor();
-
-    public BlackColor(){
-        super("black");
-        System.out.println("Black color init");
-    }
-
-    public static BlackColor getInstance(){
-        return BLACK_COLOR;
+    public static ApplicationContext getApplicationContext(String... configLocations){
+        // 该实例一创建会调用构造方法. 哪个配置文件写在前面,谁就先初始化.
+        // 如果在Xml使用import导入,则可以不用写多个配置文件地址.
+        return new ClassPathXmlApplicationContext(configLocations);
     }
 
 }

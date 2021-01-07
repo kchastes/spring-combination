@@ -13,23 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package straight;
 
-import chaste.core.simple.Rainbow;
+import chaste.core.straight.StraightValues;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import util.SpringUtil;
 
 /**
  * @author KChaste Sun
  */
-public class SpringBasicXmlTest {
+public class SpringBasicStraightTest {
 
     public static void main(String[] args) {
-        // 该实例一创建会调用构造方法. 哪个配置文件写在前面,谁就先初始化.
-        // 如果在Xml使用import导入,则可以不用写多个配置文件地址.
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-
-        Rainbow rainbow = context.getBean("rainbow", Rainbow.class);
-        System.out.println("rainbow = " + rainbow);
+        ApplicationContext applicationContext = SpringUtil.getApplicationContext("straight/Straight.xml");
+        StraightValues straight = applicationContext.getBean("straight", StraightValues.class);
+        System.out.println("straight = " + straight);
     }
 
 }

@@ -18,6 +18,8 @@ package chaste.core.simple;
 
 import chaste.core.simple.abs.Color;
 
+import java.beans.ConstructorProperties;
+
 
 /**
  * @author KChaste Sun
@@ -26,9 +28,25 @@ public class Rainbow {
 
     private Color color;
 
+
+
+    /**
+     * 如果要在xml中使用 name来消除构造参数的歧义,则编译时需要开启debug标志
+     * 或者使用{@link ConstructorProperties @ConstructorProperties}注解,如:
+     *
+     * <blockquote>
+     *     {@link ConstructorProperties @ConstructorProperties({"years", "ultimateAnswer"})}
+     *     public Rainbow(String years,String ultimateAnswer){
+     *
+     *     }
+     *</blockquote>
+     *
+     */
     public Rainbow(Color color){
         this.color = color;
     }
+
+
     public Rainbow(){
         System.out.println("Rainbow init");
     }
@@ -40,6 +58,7 @@ public class Rainbow {
         return color;
     }
     public void setColor(Color color) {
+        System.out.println("set color");
         this.color = color;
     }
 

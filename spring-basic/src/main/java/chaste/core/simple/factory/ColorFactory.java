@@ -13,25 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package chaste.core.simple;
+package chaste.core.simple.factory;
 
+import chaste.core.simple.BlackColor;
 import chaste.core.simple.abs.Color;
 
 /**
- *
  * @author KChaste Sun
  */
-public class BlackColor extends Color {
+public class ColorFactory {
 
-    private static final BlackColor BLACK_COLOR = new BlackColor();
-
-    public BlackColor(){
-        super("black");
-        System.out.println("Black color init");
-    }
-
-    public static BlackColor getInstance(){
-        return BLACK_COLOR;
+    public Color blackColor(){
+        return new BlackColor();
     }
 
 }

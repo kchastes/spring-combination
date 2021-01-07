@@ -9,7 +9,17 @@
 
     <!-- id是单个bean的标识符,class是具体的类的完全全限定类目 -->
     <bean id="rainbow" class="chaste.core.simple.Rainbow">
-        <property name="color" ref="color"/>
+        <!-- set注入 -->
+         <property name="color" ref="color"/>
+
+        <!-- 静态方法创建的对象 -->
+        <!--<property name="color" ref="colorStatic"/>-->
+
+        <!-- 使用实例工厂方法创建的对象 -->
+        <!--<property name="color" ref="colorFactoryMethod"/>-->
+
+        <!-- 构造参数注入,还可以使用name,type和index进行限定 index从0开始-->
+        <!--<constructor-arg ref="color"/>-->
     </bean>
 
 
