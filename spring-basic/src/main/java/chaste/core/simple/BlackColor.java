@@ -16,6 +16,7 @@
 package chaste.core.simple;
 
 import chaste.core.simple.abs.Color;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 /**
  *
@@ -31,7 +32,12 @@ public class BlackColor extends Color {
     }
 
     public static BlackColor getInstance(){
+        System.out.println("Static method");
         return BLACK_COLOR;
     }
 
+    @Override
+    public String toString() {
+        return "BlackColor{}";
+    }
 }

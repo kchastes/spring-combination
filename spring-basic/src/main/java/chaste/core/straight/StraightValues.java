@@ -15,7 +15,10 @@
  */
 package chaste.core.straight;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 /**
  * @author KChaste Sun
@@ -25,8 +28,33 @@ public class StraightValues {
     private String name;
     private Integer age;
     private Properties properties;
+    private List list;
+    private Map map;
+    private Set set;
 
+    public List getList() {
+        return list;
+    }
 
+    public void setList(List list) {
+        this.list = list;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Set getSet() {
+        return set;
+    }
+
+    public void setSet(Set set) {
+        this.set = set;
+    }
 
     public String getName() {
         return name;
@@ -59,6 +87,9 @@ public class StraightValues {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", properties=" + properties +
+                ", list=" + list +
+                ", map=" + map +
+                ", set=" + set +
                 '}';
     }
 }

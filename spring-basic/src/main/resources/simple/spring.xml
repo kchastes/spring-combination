@@ -21,7 +21,7 @@
         <!-- 构造参数注入,还可以使用name,type和index进行限定 index从0开始-->
         <!--<constructor-arg ref="color"/>-->
     </bean>
-
+    <bean id="rainbows" class="chaste.core.simple.Rainbow" autowire="byType"/>
 
 
 </beans>

@@ -27,7 +27,7 @@ public class SpringBasicSimpleTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringUtil.getApplicationContext("simple/spring.xml");
 
-        Rainbow rainbow = applicationContext.getBean("rainbow", Rainbow.class);
+        Rainbow rainbow = applicationContext.getBean("rainbows", Rainbow.class);
         System.out.println("rainbow = " + rainbow);
     }
 

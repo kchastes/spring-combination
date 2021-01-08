@@ -24,6 +24,7 @@ import chaste.core.simple.abs.Color;
 public class ColorFactory {
 
     public Color blackColor(){
+        System.out.println("Factory method");
         return new BlackColor();
     }
 

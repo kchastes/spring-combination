@@ -19,6 +19,7 @@ package chaste.core.simple;
 import chaste.core.simple.abs.Color;
 
 import java.beans.ConstructorProperties;
+import java.util.List;
 
 
 /**
@@ -27,7 +28,7 @@ import java.beans.ConstructorProperties;
 public class Rainbow {
 
     private Color color;
-
+    private List<Color> colors;
 
 
     /**
@@ -42,10 +43,13 @@ public class Rainbow {
      *</blockquote>
      *
      */
-    public Rainbow(Color color){
+    /*public Rainbow(Color color){
         this.color = color;
-    }
+    }*/
 
+    public Rainbow(List<Color> colors){
+        this.colors = colors;
+    }
 
     public Rainbow(){
         System.out.println("Rainbow init");
@@ -62,8 +66,19 @@ public class Rainbow {
         this.color = color;
     }
 
+    public List<Color> getColors() {
+        return colors;
+    }
+
+    public void setColors(List<Color> colors) {
+        this.colors = colors;
+    }
+
     @Override
     public String toString() {
-        return "This is a "+this.color.getColorName()+" rainbow";
+        return "Rainbow{" +
+                "color=" + color +
+                ", list=" + colors +
+                '}';
     }
 }
