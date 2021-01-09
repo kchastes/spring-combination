@@ -13,22 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package simple;
+package chaste.core.lifecycle;
 
-import chaste.core.simple.Rainbow;
-import org.springframework.context.ApplicationContext;
-import util.SpringUtil;
+import org.springframework.context.Lifecycle;
 
 /**
  * @author KChaste Sun
  */
-public class SpringBasicSimpleTest {
-
-    public static void main(String[] args) {
-        ApplicationContext applicationContext = SpringUtil.getApplicationContext("simple/spring.xml");
-        Rainbow rainbow = applicationContext.getBean("rainbow", Rainbow.class);
-        Rainbow rainbows = applicationContext.getBean("rainbow", Rainbow.class);
-        System.out.println(rainbows == rainbow);
+public class SimpleLifecycleBean implements Lifecycle {
+    @Override
+    public void start() {
+        System.out.println("Lifecycle start");
     }
 
+    @Override
+    public void stop() {
+        System.out.println("Lifecycle stop");
+    }
+
+    @Override
+    public boolean isRunning() {
+        System.out.println("Lifecycle Running");
+        return false;
+    }
 }

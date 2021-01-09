@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="lifecycleBean" class="chaste.core.lifecycle.LifecycleInitBean" init-method="init" destroy-method="clearUp" autowire="constructor">
+                <property name="smartLifecycle" ref="smartLifecycle"/>
+                <property name="beanName" value="aaa"/>
+        </bean>
+        <bean id="simpleLifecycle" class="chaste.core.lifecycle.SimpleLifecycleBean"/>
+        <bean id="smartLifecycle" class="chaste.core.lifecycle.SmartLifecycleBean"/>
+        <bean id="lifecyclePostProcessor" class="chaste.core.lifecycle.LifecyclePostProcessor"/>
+</beans>

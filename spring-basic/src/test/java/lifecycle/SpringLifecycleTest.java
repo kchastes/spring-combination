@@ -13,22 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package simple;
+package lifecycle;
 
-import chaste.core.simple.Rainbow;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import util.SpringUtil;
+
+import java.util.Arrays;
 
 /**
  * @author KChaste Sun
  */
-public class SpringBasicSimpleTest {
+public class SpringLifecycleTest {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = SpringUtil.getApplicationContext("simple/spring.xml");
-        Rainbow rainbow = applicationContext.getBean("rainbow", Rainbow.class);
-        Rainbow rainbows = applicationContext.getBean("rainbow", Rainbow.class);
-        System.out.println(rainbows == rainbow);
+        ApplicationContext applicationContext = SpringUtil.getApplicationContext("lifecycle/SpringLifecycle.xml");
+        //LifecycleBean lifecycleBean = applicationContext.getBean("lifecycleBean", LifecycleBean.class);
+        ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        System.out.println(Arrays.toString(beanDefinitionNames));
     }
 
 }

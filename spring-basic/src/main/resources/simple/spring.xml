@@ -10,8 +10,8 @@
     <!-- id是单个bean的标识符,class是具体的类的完全全限定类目 -->
     <bean id="rainbow" class="chaste.core.simple.Rainbow">
         <!-- set注入 -->
-         <property name="color" ref="color"/>
-
+        <property name="color" ref="color"/>
+        <!--<lookup-method name="方法名称" bean="要使用的bean"/>-->
         <!-- 静态方法创建的对象 -->
         <!--<property name="color" ref="colorStatic"/>-->
 
