@@ -4,11 +4,26 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-        <bean id="lifecycleBean" class="chaste.core.lifecycle.LifecycleInitBean" init-method="init" destroy-method="clearUp" autowire="constructor">
-                <property name="smartLifecycle" ref="smartLifecycle"/>
-                <property name="beanName" value="aaa"/>
-        </bean>
-        <bean id="simpleLifecycle" class="chaste.core.lifecycle.SimpleLifecycleBean"/>
-        <bean id="smartLifecycle" class="chaste.core.lifecycle.SmartLifecycleBean"/>
-        <bean id="lifecyclePostProcessor" class="chaste.core.lifecycle.LifecyclePostProcessor"/>
+    <bean id="lifecycleBean" class="chaste.core.lifecycle.LifecycleInitBean" init-method="init" destroy-method="clearUp"
+          autowire="constructor">
+        <property name="smartLifecycle" ref="smartLifecycle"/>
+        <property name="beanName" value="aaa"/>
+    </bean>
+    <bean id="simpleLifecycle" class="chaste.core.lifecycle.SimpleLifecycleBean"/>
+    <bean id="smartLifecycle" class="chaste.core.lifecycle.SmartLifecycleBean"/>
+    <bean id="lifecyclePostProcessor" class="chaste.core.lifecycle.LifecyclePostProcessor"/>
+
+    <!--
+    配置文件替换类名 骚操作.
+    <bean class="org.springframework.beans.factory.config.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+                <value>classpath:com/something/strategy.properties</value>
+        </property>
+        <property name="properties">
+                <value>custom.strategy.class=com.something.DefaultStrategy</value>
+        </property>
+     </bean>
+
+     <bean id="serviceStrategy" class="${custom.strategy.class}"/>
+    -->
 </beans>

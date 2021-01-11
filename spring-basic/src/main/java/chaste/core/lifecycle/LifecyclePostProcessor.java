@@ -16,13 +16,15 @@
 package chaste.core.lifecycle;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
 
 /**
  * @author KChaste Sun
  */
-public class LifecyclePostProcessor implements BeanPostProcessor, Ordered {
+public class LifecyclePostProcessor implements BeanPostProcessor, Ordered, BeanFactoryPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -47,5 +49,10 @@ public class LifecyclePostProcessor implements BeanPostProcessor, Ordered {
     @Override
     public int getOrder() {
         return 0;
+    }
+
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        System.out.println("beanFactory invoke...");
     }
 }
