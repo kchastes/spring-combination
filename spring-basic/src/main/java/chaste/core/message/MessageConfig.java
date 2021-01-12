@@ -13,24 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package properties;
+package chaste.core.message;
 
-import chaste.core.annotation.MyBean;
-import chaste.core.properties.BeanConfig;
-import chaste.core.properties.PropertiesValue;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import util.SpringUtil;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
 /**
  * @author KChaste Sun
  */
-public class ConfigTest {
+@Configuration
+public class MessageConfig {
 
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanConfig.class);
-        PropertiesValue propertiesValue = applicationContext.getBean("propertiesValue", PropertiesValue.class);
-        System.out.println(propertiesValue);
+    @Bean
+    public MessageSource messageSource(){
+        ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource = new ReloadableResourceBundleMessageSource();
+        reloadableResourceBundleMessageSource.setBasenames("windows");
+        return  reloadableResourceBundleMessageSource;
     }
+
 
 }

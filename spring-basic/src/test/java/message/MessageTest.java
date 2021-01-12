@@ -13,24 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package properties;
+package message;
 
-import chaste.core.annotation.MyBean;
-import chaste.core.properties.BeanConfig;
-import chaste.core.properties.PropertiesValue;
-import org.springframework.context.ApplicationContext;
+import chaste.core.message.MessageConfig;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import util.SpringUtil;
+
+import java.util.Locale;
 
 /**
  * @author KChaste Sun
  */
-public class ConfigTest {
+public class MessageTest {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanConfig.class);
-        PropertiesValue propertiesValue = applicationContext.getBean("propertiesValue", PropertiesValue.class);
-        System.out.println(propertiesValue);
+        MessageSource messageSource = new AnnotationConfigApplicationContext(MessageConfig.class);
+        String message = messageSource.getMessage("name", null, "default message", Locale.CHINA);
+        System.out.println(message);
+
     }
 
 }

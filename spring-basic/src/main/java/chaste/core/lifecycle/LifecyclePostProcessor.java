@@ -22,6 +22,9 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.Ordered;
 
 /**
+ * 在使用{@link org.springframework.context.annotation.Bean @Bean}方法注册
+ * {@link BeanPostProcessor BeanPostProcessor}时,请一定要加上<code>static</code>,以防止过早实例化.
+ *
  * @author KChaste Sun
  */
 public class LifecyclePostProcessor implements BeanPostProcessor, Ordered, BeanFactoryPostProcessor {
