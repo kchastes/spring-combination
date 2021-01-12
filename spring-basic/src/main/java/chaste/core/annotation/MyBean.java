@@ -35,9 +35,9 @@ public class MyBean {
      * @param dependBeans 依赖项
      */
     //@Required
-    @Autowired
     //@Resource
     //@Lazy
+    @Autowired
     public void setDependBean(DependBean dependBeans) {
         this.dependBeans = dependBeans;
     }
