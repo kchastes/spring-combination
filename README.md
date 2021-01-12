@@ -3,7 +3,7 @@
 > Use Spring to integrate third-party frameworks.
 
 # Overview
-The project uses Spring to integrate third-party frameworks and provide best practices.I hope if you join me and correct me.😀
+The project uses Spring to integrate third-party frameworks and provide best practices.I hope if you join me and correct me.😀(p.s.My English not a good,but,I'm learning)
  
 
 # Contact Me
